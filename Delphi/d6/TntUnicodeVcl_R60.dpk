@@ -28,9 +28,13 @@ package TntUnicodeVcl_R60;
 
 requires
   vcl,
-  vclx,
+  vclx
+{$IFNDEF DelphiPersonalEdition}
+  ,
   vcldb,
-  dclact;
+  dclact
+{$ENDIF}
+  ;
 
 contains
   ActiveIMM_TLB in '..\..\Source\ActiveIMM_TLB.pas',
@@ -55,15 +59,19 @@ contains
   TntCheckLst in '..\..\Source\TntCheckLst.pas',
   TntGrids in '..\..\Source\TntGrids.pas',
   TntComCtrls in '..\..\Source\TntComCtrls.pas',
+{$IFNDEF DelphiPersonalEdition}
   TntDB in '..\..\Source\TntDB.pas',
   TntDBCtrls in '..\..\Source\TntDBCtrls.pas',
   TntDBGrids in '..\..\Source\TntDBGrids.pas',
+{$ENDIF}
   TntStdActns in '..\..\Source\TntStdActns.pas',
   TntExtActns in '..\..\Source\TntExtActns.pas',
   TntListActns in '..\..\Source\TntListActns.pas',
+{$IFNDEF DelphiPersonalEdition}
   TntDBActns in '..\..\Source\TntDBActns.pas',
   TntBandActn in '..\..\Source\TntBandActn.pas',
   TntDBLogDlg in '..\..\Source\TntDBLogDlg.pas',
+{$ENDIF}
   TntFormatStrUtils in '..\..\Source\TntFormatStrUtils.pas',
   TntWideStrings in '..\..\Source\TntWideStrings.pas',
   TntWideStrUtils in '..\..\Source\TntWideStrUtils.pas';

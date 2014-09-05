@@ -1,8 +1,12 @@
 package TntUnicodeVcl_D60;
-
+{$IFDEF D6PersonalEdition}
+{$DEFINE DelphiPersonalEdition}
+{$ENDIF}
 {$R *.res}
 {$R '..\..\Design\TntComCtrls.dcr'}
+{$IFNDEF DelphiPersonalEdition}
 {$R '..\..\Design\TntDBCtrls.dcr'}
+{$ENDIF}
 {$R '..\..\Design\TntStdCtrls.dcr'}
 {$R '..\..\Design\TntActnList.dcr'}
 {$R '..\..\Design\TntMenus.dcr'}
@@ -38,15 +42,21 @@ package TntUnicodeVcl_D60;
 {$IMPLICITBUILD ON}
 
 requires
+{$IFNDEF DelphiPersonalEdition}
   dclact,
   dcldb,
+{$ENDIF}
   designide,
   TntUnicodeVcl_R60;
 
 contains
+{$IFNDEF DelphiPersonalEdition}
   TntForms_Design in '..\..\Design\TntForms_Design.pas',
+{$ENDIF}
   TntComCtrls_Design in '..\..\Design\TntComCtrls_Design.pas',
+{$IFNDEF DelphiPersonalEdition}
   TntDBGrids_Design in '..\..\Design\TntDBGrids_Design.pas',
+{$ENDIF}
   TntDesignEditors_Design in '..\..\Design\TntDesignEditors_Design.pas',
   TntWideStringProperty_Design in '..\..\Design\TntWideStringProperty_Design.pas',
   TntMenus_Design in '..\..\Design\TntMenus_Design.pas',

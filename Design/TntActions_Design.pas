@@ -21,8 +21,12 @@ implementation
 
 uses
   Classes, ActnList, TntActnList, StdActns, TntStdActns,
-  ExtActns, TntExtActns, ListActns, TntListActns, BandActn, TntBandActn,
-  DBActns, TntDBActns, TntDesignEditors_Design;
+  ExtActns, TntExtActns, ListActns, TntListActns,
+  {$IFNDEF DelphiPersonalEdition}
+  BandActn, TntBandActn,
+  DBActns, TntDBActns,
+  {$ENDIF}
+  TntDesignEditors_Design;
 
 procedure Register;
 begin
@@ -90,6 +94,7 @@ begin
   RegisterClass(TTntFilePageSetup);
   {$ENDIF}
   // DBActns
+  {$IFNDEF DelphiPersonalEdition}
   RegisterClass(TTntDataSetAction);
   RegisterClass(TTntDataSetFirst);
   RegisterClass(TTntDataSetPrior);
@@ -103,6 +108,7 @@ begin
   RegisterClass(TTntDataSetRefresh);
   // BandActn
   RegisterClass(TTntCustomizeActionBars);
+  {$ENDIF}
 end;
 
 //------------------------
